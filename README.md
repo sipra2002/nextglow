@@ -1,5 +1,5 @@
 # 🌸 GlowUp – Beauty & Skincare Web Application
-> Final Year MCA College Project — Full-Stack Web Application
+> Full-Stack Web Application
 
 GlowUp is a beauty and skincare platform designed with an elegant blush pink, white, and light beige aesthetic. It features an intelligent **Skin Analysis Quiz**, a curated **Skincare Catalogue** (in Indian Rupees ₹), **Daily Skincare Ritual Guides** (Morning & Night), **Beauty Tips & Tutorials**, a database-backed **Shopping Bag**, and a complete **Admin Management Portal**.
 
