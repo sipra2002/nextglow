@@ -1,0 +1,53 @@
+services:
+  # ============================================================================
+  # 1. GlowUp Backend Web Service (Node.js + Express + Prisma)
+  # ============================================================================
+  - type: web
+    name: nextglow-backend
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        fromService:
+          type: web
+          name: nextglow-frontend
+          property: host
+
+  # ============================================================================
+  # 2. GlowUp Frontend Static Site (React + Vite)
+  # ============================================================================
+  - type: web
+    name: nextglow-frontend
+    runtime: static
+    plan: free
+    region: oregon
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: nextglow-backend
+          property: host

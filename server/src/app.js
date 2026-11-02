@@ -17,6 +17,9 @@ const app = express();
 
 app.disable('x-powered-by');
 
+const path = require('path');
+const fs = require('fs');
+
 // Security headers
 app.use(
   helmet({
@@ -24,11 +27,33 @@ app.use(
   })
 );
 
-// CORS
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+// CORS configuration supporting Render, local, and custom client URLs
+const clientUrl = process.env.CLIENT_URL;
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'http://localhost:3000',
+  'http://localhost:5000',
+];
+if (clientUrl) {
+  clientUrl.split(',').map((u) => u.trim()).filter(Boolean).forEach((u) => allowedOrigins.push(u));
+}
+
 app.use(
   cors({
-    origin: [clientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, Postman)
+      if (!origin) return callback(null, true);
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.onrender.com') ||
+        origin.endsWith('.vercel.app') ||
+        origin.endsWith('.netlify.app')
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );
@@ -70,6 +95,18 @@ app.use('/api/cart', cartRoutes);
 app.use('/api/*', (req, res) => {
   res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
 });
+
+// Serve frontend static build if client/dist exists (single-service deployment)
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
 
 // Central error handler
 app.use(errorHandler);

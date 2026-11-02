@@ -1,0 +1,12 @@
+{
+  "name": "nextglow",
+  "version": "1.0.0",
+  "description": "NextGlow Beauty & Skincare Platform",
+  "scripts": {
+    "install:all": "npm install --prefix client && npm install --prefix server",
+    "build:client": "npm install --prefix client && npm run build --prefix client",
+    "build:server": "npm install --prefix server && npm run build --prefix server",
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server && npm run build --prefix server",
+    "start": "node server/server.js"
+  }
+}
