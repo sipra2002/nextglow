@@ -1,0 +1,6 @@
+/* Baseline reset - themed styles are loaded in theme.css */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,498 @@
+/* ========================================================
+   GlowUp Beauty & Skincare — Design System & Theme Styles
+   Colors: Radiant Pink (#E91E63), Soft Pink (#F8BBD0),
+   Blush (#FDE7EF), Light Beige (#F5EBE0), Clean White (#FFFFFF)
+   Typography: Playfair Display (Headings), Poppins (Body)
+   ======================================================== */
+
+:root {
+  --pink: #E91E63;
+  --pink-dark: #C2185B;
+  --pink-soft: #F8BBD0;
+  --pink-light: #FDE7EF;
+  --pink-subtle: #FFF0F5;
+  --pink-glow: rgba(233, 30, 99, 0.22);
+  --pink-shadow: rgba(233, 30, 99, 0.15);
+
+  --beige: #F5EBE0;
+  --beige-light: #FAF4ED;
+  --beige-border: #E8D9C8;
+
+  --white: #FFFFFF;
+  --dark: #202020;
+  --text: #3A3A3A;
+  --text-muted: #6C757D;
+  --border-light: rgba(233, 30, 99, 0.12);
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px var(--pink-shadow);
+  --shadow-lg: 0 16px 36px rgba(233, 30, 99, 0.18);
+  --shadow-hover: 0 20px 40px rgba(233, 30, 99, 0.22);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base resets & typography */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: #FCFBF9;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  color: var(--dark);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--beige-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pink-soft);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}
+
+/* Background Utilities */
+.bg-glow-pink {
+  background: linear-gradient(135deg, #FFF0F5 0%, #FDE7EF 100%);
+}
+.bg-glow-beige {
+  background-color: var(--beige-light);
+}
+.bg-glow-white {
+  background-color: var(--white);
+}
+
+/* Buttons */
+.btn-glow {
+  background: linear-gradient(135deg, var(--pink) 0%, #D81B60 100%);
+  color: #FFFFFF !important;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 50px;
+  padding: 0.7rem 1.8rem;
+  box-shadow: 0 6px 18px var(--pink-glow);
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-glow:hover {
+  background: linear-gradient(135deg, #D81B60 0%, #AD1457 100%);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(233, 30, 99, 0.35);
+}
+
+.btn-glow-outline {
+  background: transparent;
+  color: var(--pink) !important;
+  border: 2px solid var(--pink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  padding: 0.65rem 1.8rem;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn-glow-outline:hover {
+  background-color: var(--pink);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--pink-glow);
+}
+
+.btn-glow-soft {
+  background: var(--pink-light);
+  color: var(--pink) !important;
+  border: 1px solid var(--pink-soft);
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.55rem 1.4rem;
+  transition: all var(--transition-fast);
+}
+.btn-glow-soft:hover {
+  background: var(--pink-soft);
+  color: var(--pink-dark) !important;
+  transform: translateY(-1px);
+}
+
+/* Cards & Containers */
+.glow-card {
+  background: var(--white);
+  border: 1px solid rgba(233, 30, 99, 0.08);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+.glow-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(233, 30, 99, 0.2);
+}
+
+/* Product Card */
+.product-card {
+  background: var(--white);
+  border: 1px solid rgba(233, 30, 99, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px var(--pink-shadow);
+  border-color: var(--pink-soft);
+}
+.product-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background-color: #F8F5F2;
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-img {
+  transform: scale(1.06);
+}
+
+/* Badges */
+.badge-pill-pink {
+  background-color: var(--pink-light);
+  color: var(--pink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid var(--pink-soft);
+}
+.badge-skin-type {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 30px;
+  background-color: #FFF5F7;
+  color: #C2185B;
+  border: 1px solid #FFD1DF;
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+.badge-featured {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation bar */
+.navbar-glow {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(233, 30, 99, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1030;
+}
+.navbar-glow .nav-link {
+  font-weight: 500;
+  color: #4A4A4A;
+  padding: 0.6rem 1rem !important;
+  transition: color var(--transition-fast);
+}
+.navbar-glow .nav-link:hover,
+.navbar-glow .nav-link.active {
+  color: var(--pink) !important;
+}
+
+.brand-logo {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--pink) !important;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+.brand-logo-sparkle {
+  font-size: 1.4rem;
+  animation: sparkleRotate 6s infinite linear;
+}
+@keyframes sparkleRotate {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Hero Section */
+.hero-section {
+  background: radial-gradient(circle at 85% 20%, #FDE7EF 0%, #FFF5F8 50%, #FAF4ED 100%);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-title {
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.hero-title span {
+  color: var(--pink);
+  font-style: italic;
+}
+.hero-img-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(233, 30, 99, 0.2);
+}
+.hero-floating-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(233, 30, 99, 0.15);
+  border-radius: 18px;
+  padding: 1rem 1.4rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  animation: floatBadge 4s ease-in-out infinite alternate;
+}
+@keyframes floatBadge {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Skin Quiz Styles */
+.quiz-option-card {
+  border: 2px solid #EBE4DD;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.quiz-option-card:hover {
+  border-color: var(--pink-soft);
+  background-color: #FFF9FB;
+  transform: translateX(4px);
+}
+.quiz-option-card.selected {
+  border-color: var(--pink);
+  background: #FFF0F5;
+  box-shadow: 0 4px 16px var(--pink-glow);
+}
+.quiz-option-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #D0C5BC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.quiz-option-card.selected .quiz-option-radio {
+  border-color: var(--pink);
+  background: var(--pink);
+}
+.quiz-option-card.selected .quiz-option-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+/* Result Skin Profile Card */
+.skin-result-header {
+  background: linear-gradient(135deg, var(--pink) 0%, #D81B60 100%);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Routine Step Cards */
+.routine-step-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 1.5rem;
+  border: 1px solid rgba(233, 30, 99, 0.08);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  height: 100%;
+  transition: transform 0.25s ease;
+}
+.routine-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink-soft);
+  box-shadow: var(--shadow-md);
+}
+.routine-step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  color: var(--pink);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Category Filter Tabs */
+.filter-pill {
+  padding: 0.55rem 1.4rem;
+  border-radius: 50px;
+  background: var(--white);
+  border: 1px solid #E5DCD2;
+  color: #555555;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.filter-pill:hover {
+  border-color: var(--pink-soft);
+  color: var(--pink);
+}
+.filter-pill.active {
+  background: var(--pink);
+  color: #FFFFFF;
+  border-color: var(--pink);
+  box-shadow: 0 4px 12px var(--pink-glow);
+}
+
+/* Beauty Tip Card */
+.tip-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid rgba(233, 30, 99, 0.08);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.tip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px var(--pink-shadow);
+  border-color: var(--pink-soft);
+}
+.tip-img-wrap {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.tip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.tip-card:hover .tip-img {
+  transform: scale(1.05);
+}
+
+/* Cart Table & Summary */
+.cart-qty-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #E2D7CC;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.cart-qty-btn:hover {
+  background: var(--pink);
+  color: #FFFFFF;
+  border-color: var(--pink);
+}
+
+/* Footer */
+.footer-glow {
+  background-color: #231F20;
+  color: #CCCCCC;
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+  margin-top: 5rem;
+}
+.footer-glow h5 {
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+}
+.footer-glow a {
+  color: #AAAAAA;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.footer-glow a:hover {
+  color: var(--pink-soft);
+}
