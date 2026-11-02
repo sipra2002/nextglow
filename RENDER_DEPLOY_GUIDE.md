@@ -16,8 +16,8 @@ We have included a [`render.yaml`](./render.yaml) blueprint file in this reposit
    - **`nextglow-backend`** (Web Service on Node.js)
    - **`nextglow-frontend`** (Static Site on React + Vite)
 5. Under Environment Variables for `nextglow-backend`, enter:
-   - `DATABASE_URL`: `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require`
-   - `DIRECT_URL`: `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require`
+   - `DATABASE_URL`: `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`
+   - `DIRECT_URL`: `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`
 6. Click **Apply**. Render will build and deploy both services!
 
 ---
@@ -41,8 +41,8 @@ If you prefer to configure the services manually on Render:
 4. Under **Environment Variables**, add:
    - `NODE_ENV` = `production`
    - `PORT` = `10000`
-   - `DATABASE_URL` = `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require`
-   - `DIRECT_URL` = `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require`
+   - `DATABASE_URL` = `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`
+   - `DIRECT_URL` = `postgresql://neondb_owner:npg_0VhPLuTvdys8@ep-rapid-snow-ao22j9jl.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`
    - `JWT_SECRET` = `glowup_super_secret_jwt_key_2026_mca_project_token_very_secure`
    - `JWT_EXPIRES_IN` = `7d`
 5. Click **Deploy Web Service**.

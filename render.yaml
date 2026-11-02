@@ -6,7 +6,7 @@ services:
     name: nextglow-backend
     runtime: node
     plan: free
-    region: oregon
+    region: singapore
     rootDir: server
     buildCommand: npm install && npm run build
     startCommand: node server.js
@@ -37,7 +37,7 @@ services:
     name: nextglow-frontend
     runtime: static
     plan: free
-    region: oregon
+    region: singapore
     rootDir: client
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
